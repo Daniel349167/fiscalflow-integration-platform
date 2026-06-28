@@ -18,6 +18,8 @@ jobs:
           distribution: temurin
           java-version: 17
           cache: gradle
+      - name: Make Gradle wrapper executable
+        run: chmod +x backend/gradlew
       - name: Test backend with PostgreSQL Testcontainers
         working-directory: backend
         run: ./gradlew clean test --no-daemon
