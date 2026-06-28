@@ -1,5 +1,7 @@
 # FiscalFlow Integration Platform
 
+[![CI](https://github.com/Daniel349167/fiscalflow-integration-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/Daniel349167/fiscalflow-integration-platform/actions/workflows/ci.yml)
+
 Full Stack sandbox for operating electronic-document integrations with Java,
 Spring Boot, Vue, PostgreSQL and Docker.
 
@@ -10,6 +12,8 @@ employer code, private documentation, credentials or production taxpayer data.
 
 > This is not a SUNAT-certified invoicing product and is not affiliated with an
 > OSE, PSE, The Factory HKA or any other provider. All provider behavior is simulated.
+
+![FiscalFlow operations dashboard](docs/assets/fiscalflow-dashboard.png)
 
 ## Why this project exists
 
@@ -37,7 +41,7 @@ The backend is a modular monolith. One team and one consistency boundary do not
 justify multiple deployables yet. Provider-specific logic sits behind an adapter
 port, so adding a real integration does not change the document workflow.
 
-## Senior engineering signals
+## Engineering depth
 
 - **Idempotent creation:** the same key and payload return the original document;
   reusing a key with a different payload returns HTTP 409.
