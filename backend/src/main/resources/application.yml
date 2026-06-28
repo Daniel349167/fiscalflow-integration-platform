@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: fiscalflow
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/fiscalflow}
+    username: ${DATABASE_USER:fiscalflow}
+    password: ${DATABASE_PASSWORD:fiscalflow}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+
+server:
+  port: ${PORT:8080}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  cors-origin: ${CORS_ORIGIN:http://localhost:5173}
+  outbox-delay-ms: ${OUTBOX_DELAY_MS:750}
+  seed-demo: ${SEED_DEMO:true}
